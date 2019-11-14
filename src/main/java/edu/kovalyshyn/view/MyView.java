@@ -32,22 +32,35 @@ public class MyView {
   }
 
   private void pressButton1() {
-    System.out.println(controller);
+    System.out.println("All electronics  appliances at home: +\n-------------------------");
+    controller.printDevices();
   }
 
   private void pressButton2() {
-
+    controller.turnedOnAppliance().forEach(System.out::println);
   }
 
   private void pressButton3() {
+    System.out.println("calculation of consumed electricity is: " +
+        controller.calculateElectricityConsumed() + " W/h");
 
   }
 
   private void pressButton4() {
 
+    controller.sortedByElectricitiConsumed();
   }
 
   private void pressButton5() {
+    System.out.println("Show electronic appliance by consumed electricity:");
+    System.out.println("please input range of electronics power from min");
+    int from = input.nextInt();
+
+    System.out.println("to max power in W");
+    int to = input.nextInt();
+
+    controller.findByElectricityConsume(from,to).forEach(System.out::println);
+
 
   }
 
@@ -68,6 +81,6 @@ public class MyView {
         methodsMenu.get(keyMenu).print();
       } catch (Exception e) {
       }
-    }while (!keyMenu.equals("Q"));
+    } while (!keyMenu.equals("Q"));
   }
 }
