@@ -54,14 +54,12 @@ public class MyView {
   private void pressButton5() {
     System.out.println("Show electronic appliance by consumed electricity:");
     System.out.println("please input range of electronics power from min");
-    int from = input.nextInt();
-
+    Scanner scanner = new Scanner(System.in);
+    int from = scanner.nextInt();
     System.out.println("to max power in W");
-    int to = input.nextInt();
+    int to = scanner.nextInt();
 
     controller.findByElectricityConsume(from,to).forEach(System.out::println);
-
-
   }
 
   private void outputMenu() {
